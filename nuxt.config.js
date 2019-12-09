@@ -1,3 +1,8 @@
+import client from './plugins/contentful'
+
+if (!process.env.CTF_SPACE_ID) {
+  require('dotenv').config()
+}
 
 export default {
   mode: 'universal',
@@ -34,22 +39,14 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@nuxtjs/dotenv',
   ],
   /*
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
   ],
-  /*
-  ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
-  */
-  axios: {
-  },
   /*
   ** Build configuration
   */
@@ -58,6 +55,20 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+    }
+  },
+  generate: {
+    routes() {
+      return client.getEntries({
+        content_type: 'article'
+      }).then(res => {
+        return res.items.map(article => {
+          return {
+            route: `/articles/${article.sys.id}`,
+            payload: article
+          }
+        })
+      })
     }
   }
 }

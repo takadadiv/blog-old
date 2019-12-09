@@ -1,5 +1,6 @@
 <template lang="pug">
   div
+    pre {{ article }}
     h1 {{ article.fields.title }}
     p
       time {{ article.sys.createdAt }}
@@ -13,10 +14,14 @@
 import client from '~/plugins/contentful'
 
 export default {
-  async asyncData({ params }) {
-    const article = await client.getEntry(params.id)
+  async asyncData({ params, payload }) {
+    if (payload) {
+      return { article: payload }
+    }
 
-    return { article }
+    return {
+      article: await client.getEntry(params.id)
+    }
   }
 }
 </script>
