@@ -1,9 +1,5 @@
 import client from './plugins/contentful'
 
-if (!process.env.CTF_SPACE_ID) {
-  require('dotenv').config()
-}
-
 export default {
   mode: 'universal',
   /*
@@ -39,7 +35,6 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxtjs/dotenv',
   ],
   /*
   ** Nuxt.js modules
