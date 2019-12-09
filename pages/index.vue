@@ -1,13 +1,9 @@
-<template>
-  <div>
-    <ul>
-      <li v-for="article in articles" :key="article.sys.id">
-        <pre>
-          {{ article }}
-        </pre>
-      </li>
-    </ul>
-  </div>
+<template lang="pug">
+  div
+    ul
+      li(v-for="article in articles" :key="article.sys.id")
+        n-link(:to="{ name: 'articles-id', params: { id: article.sys.id } }")
+          | {{ article.fields.title }}
 </template>
 
 <script>
@@ -26,6 +22,5 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped lang="stylus">
 </style>
