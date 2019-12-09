@@ -1,12 +1,10 @@
 <template lang="pug">
   div
-    pre {{ article }}
     h1 {{ article.fields.title }}
-    p
-      time {{ article.sys.createdAt }}
+    p {{ article.sys.createdAt }}
     ul
       li(v-for="tag in article.fields.tag" :key="tag") {{ tag }}
-    pre {{ article.fields.body }}
+    div(v-html="$md.render(article.fields.body)")
 
 </template>
 
