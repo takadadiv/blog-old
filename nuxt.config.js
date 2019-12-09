@@ -13,7 +13,11 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: '/assets/uikit/css/uikit.min.css' }
+    ],
+    script: [
+      { src: '/assets/uikit/js/uikit.min.js' }
     ]
   },
   /*
@@ -50,6 +54,7 @@ export default {
   ** Build configuration
   */
   build: {
+    publicPath: '/assets/',
     /*
     ** You can extend webpack config here
     */
