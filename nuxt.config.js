@@ -14,7 +14,8 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: '/assets/uikit/css/uikit.min.css' }
+      { rel: 'stylesheet', href: '/assets/uikit/css/uikit.min.css' },
+      { rel: 'stylesheet', href: '/assets/hljs/css/github.css' }
     ],
     script: [
       { src: '/assets/uikit/js/uikit.min.js' }
@@ -48,7 +49,18 @@ export default {
     '@nuxtjs/markdownit'
   ],
   markdownit: {
-    injected: true
+    injected: true,
+    highlight: (str, lang) => {
+      const hljs = require('highlight.js')
+
+      if (lang && hljs.getLanguage(lang)) {
+        try {
+          return hljs.highlight(lang, str).value
+        } catch (e) {
+          return ''
+        }
+      }
+    }
   },
   /*
   ** Build configuration
