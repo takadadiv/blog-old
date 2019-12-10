@@ -14,7 +14,6 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: '/assets/uikit/css/uikit.min.css' },
       { rel: 'stylesheet', href: '/assets/hljs/css/github.css' }
     ],
     script: [
@@ -29,6 +28,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '~/assets/css/uikit.scss'
   ],
   /*
   ** Plugins to load before mounting the App
