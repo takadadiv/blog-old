@@ -28,7 +28,8 @@ export default {
   ** Global CSS
   */
   css: [
-    '~/assets/css/uikit.scss'
+    '~/assets/css/uikit.scss',
+    '~/assets/css/site.styl'
   ],
   /*
   ** Plugins to load before mounting the App
