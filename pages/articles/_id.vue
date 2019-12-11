@@ -1,26 +1,27 @@
 <template lang="pug">
-  div
+  article.article
     .date
-      time {{ article.sys.createdAt }}
-    .title
-      h1 {{ article.fields.title }}
+      Time(:datetime="article.sys.createdAt")
+    h1.title
+      | {{ article.fields.title }}
     .tags
       Tag(
         v-for="tag in article.fields.tags"
         :key="tag.sys.id"
         :tag="tag"
       )
-    .body
-      div(v-html="$md.render(article.fields.body)")
+    .body(v-html="$md.render(article.fields.body)")
 </template>
 
 <script>
-import client from '~/plugins/contentful'
 import Tag from '~/components/Tag'
+import Time from '~/components/Time'
+import client from '~/plugins/contentful'
 
 export default {
   components: {
-    Tag
+    Tag,
+    Time
   },
 
   async asyncData({ params, payload }) {
@@ -36,4 +37,18 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.article
+  margin 50px 0
+.title
+  margin 0
+.body
+  margin-top 75px
+  >>> pre
+    background #f3f3f3
+    margin 0
+    padding 20px
+    border-top 1px solid #777
+    border-bottom 1px solid #777
+  >>> hr
+    margin 45px 0 40px
 </style>

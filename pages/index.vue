@@ -1,8 +1,5 @@
 <template lang="pug">
   div
-
-    .menu
-
     ArticleSummary(v-for="article in articles" :key="article.sys.id" :article="article")
 </template>
 
@@ -28,6 +25,4 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.menu
-  height 200px
 </style>
