@@ -17,7 +17,8 @@ export default {
       { rel: 'stylesheet', href: '/assets/hljs/css/github.css' }
     ],
     script: [
-      { src: '/assets/uikit/js/uikit.min.js' }
+      { src: '/assets/uikit/js/uikit.min.js' },
+      { src: '/assets/uikit/js/uikit-icons.min.js' }
     ]
   },
   /*

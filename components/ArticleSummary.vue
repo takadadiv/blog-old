@@ -1,33 +1,39 @@
 <template lang="pug">
-    .uk-grid-collapse(uk-grid)
-      .uk-width-expand
-        .summary
-          .date
-            time {{ article.sys.createdAt }}
-          .title
-            n-link(:to="{ name: 'articles-id', params: { id: article.sys.id } }") {{ article.fields.title }}
-          .tag
-            n-link(
-              v-for="tag in article.fields.tags"
-              :key="tag.sys.id"
-              :to="{ name: 'tags-id', params: { id: tag.sys.id } }"
-            ) {{ tag.fields.name }}
+  .uk-grid-collapse(uk-grid)
+    .uk-width-expand
+      .summary
+        .date
+          time {{ article.sys.createdAt }}
+        .title
+          n-link(:to="{ name: 'articles-id', params: { id: article.sys.id } }") {{ article.fields.title }}
+        .tags
+          Tag(
+            v-for="tag in article.fields.tags"
+            :key="tag.sys.id"
+            :tag="tag"
+          )
 </template>
 
 <script>
+import Tag from '~/components/Tag'
+
 export default {
+  components: {
+    Tag
+  },
+
   props: {
     article: Object
   }
 }
 </script>
 
-<style scoped lang="stylus">
+<style lang="stylus" scoped>
 .summary
   padding 30px
   .title
     margin-top 5px
     font-size 20px
-  .tag
+  .tags
     margin-top 10px
 </style>

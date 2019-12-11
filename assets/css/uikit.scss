@@ -1,5 +1,8 @@
 // 1. Your custom variables and variable overwrites.
-
+$global-color: #222;
+$global-link-color: #222;
+$global-link-hover-color: #777;
+$base-link-hover-text-decoration: none;
 
 // 2. Import default variables and available mixins.
 @import "../../node_modules/uikit/src/scss/variables.scss";

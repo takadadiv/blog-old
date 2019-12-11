@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style lang="stylus" scoped>
 .menu
   height 200px
 </style>
