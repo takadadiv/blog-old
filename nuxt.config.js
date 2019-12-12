@@ -1,4 +1,4 @@
-import client from './plugins/contentful'
+import generate from './config/generate'
 
 export default {
   mode: 'universal',
@@ -78,20 +78,7 @@ export default {
   /*
   ** Generate configuration
   */
-  generate: {
-    routes() {
-      return client.getEntries({
-        content_type: 'article'
-      }).then(res => {
-        return res.items.map(article => {
-          return {
-            route: `/articles/${article.sys.id}`,
-            payload: article
-          }
-        })
-      })
-    }
-  },
+  generate,
   /*
   ** Client environment variables
   */

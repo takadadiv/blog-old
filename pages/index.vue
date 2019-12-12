@@ -14,7 +14,8 @@ export default {
 
   async asyncData() {
     const res = await client.getEntries({
-      content_type: 'article'
+      content_type: 'article',
+      limit: 5
     })
 
     return {
