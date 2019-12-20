@@ -1,15 +1,18 @@
 <template lang="pug">
   div
+    Navbar
     ArticleSummary(v-for="article in articles" :key="article.sys.id" :article="article")
 </template>
 
 <script>
 import client from '~/plugins/contentful'
+import Navbar from '~/components/Navbar'
 import ArticleSummary from '~/components/ArticleSummary'
 
 export default {
   components: {
-    ArticleSummary
+    ArticleSummary,
+    Navbar
   },
 
   async asyncData() {
