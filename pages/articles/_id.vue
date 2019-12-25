@@ -24,14 +24,31 @@ export default {
     Time
   },
 
-  async asyncData({ params, payload }) {
+  async asyncData({ payload, params, store, error }) {
     if (payload) {
       return { article: payload }
     }
 
-    return {
-      article: await client.getEntry(params.id)
+    // storeを探して見つかれば返す
+    let article = store.state.articles.entries.find(a => a.sys.id === params.id)
+
+    if (article) {
+      console.log('store hit: article')
+      return { article }
     }
+
+    // 次にcontentfulを探して見つかれば返す
+    try {
+      article = await client.getEntry(params.id)
+    } catch (e) {
+      if (e.sys.id === 'NotFound') {
+        return error({ statusCode: 404 })
+      }
+      throw e
+    }
+
+    console.log('get from contentful: article')
+    return { article }
   }
 }
 </script>

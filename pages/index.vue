@@ -14,14 +14,11 @@ export default {
     Navbar
   },
 
-  async asyncData() {
-    const res = await client.getEntries({
-      content_type: 'article',
-      limit: 5
-    })
+  middleware: 'getAllArticles',
 
-    return {
-      articles: res.items
+  computed: {
+    articles() {
+      return this.$store.state.articles.entries
     }
   }
 }

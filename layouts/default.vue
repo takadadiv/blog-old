@@ -1,6 +1,6 @@
 <template lang="pug">
   .uk-container
-    //- Navbar
+    Navbar
     nuxt
 </template>
 

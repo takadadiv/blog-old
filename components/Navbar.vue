@@ -5,13 +5,13 @@
         div.page-title
           h1 title
         li
-          a(href="#") ブログ
-        li
-          a(href="#") ポートフォリオ
-        li
-          a(href="#") スライド
-        li
-          a(href="#") プロフィール
+          n-link(:to="{ name: 'index' }") ブログ
+        //- li
+        //-   a(href="#") ポートフォリオ
+        //- li
+        //-   a(href="#") スライド
+        //- li
+        //-   a(href="#") プロフィール
 </template>
 
 <script>
