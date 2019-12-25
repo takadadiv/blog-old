@@ -1,6 +1,5 @@
 <template lang="pug">
   div
-    Navbar
     ArticleSummary(v-for="article in articles" :key="article.sys.id" :article="article")
 </template>
 

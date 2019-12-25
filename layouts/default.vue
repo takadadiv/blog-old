@@ -1,4 +1,15 @@
 <template lang="pug">
-  div.uk-container
+  .uk-container
+    //- Navbar
     nuxt
 </template>
+
+<script>
+import Navbar from '~/components/Navbar'
+
+export default {
+  components: {
+    Navbar
+  }
+}
+</script>
